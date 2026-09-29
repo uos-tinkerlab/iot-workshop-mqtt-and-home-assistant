@@ -37,3 +37,10 @@ Finally install auto-entriries with this link https://my.home-assistant.io/redir
 ## Wi-Fi
 
 In Home Assistant go Settings ➡️ System ➡️ Network ➡️ IPv4. **Make sure the IP address is projected on the board or visible somewhere.**
+
+
+
+
+NOTES
+The first step is to place the Pi Pico at the end of the breadboard as shown in the picture. Line it up with the breadboards pin hole and carefully push down on all 4 corners of the Pi pico.
+IMAGE
