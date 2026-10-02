@@ -81,5 +81,5 @@ while True:
     client.check_msg()
 ```
 
-Try run the new code on  both the Pico's. After watiing a few seconds the partner with the receiving Pi Pico should see the the messages being received in Thonny:
-IMAGE
+Try run the new code on  both the Pi Pico's. After waiting a few seconds the partner with the receiving Pi Pico should see the the messages being received in Thonny:  
+ADD IMAGE!!!!!!!!!!!
