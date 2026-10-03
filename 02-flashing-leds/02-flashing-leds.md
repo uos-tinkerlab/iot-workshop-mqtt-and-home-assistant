@@ -7,7 +7,7 @@ Here is the list of components you need:
  - Micro USB cable
  - x3 red LEDs
  - x3 120R resisters
- - x5 BreadBoard wires (you can always go back to get them when you  now  what sizes you need)
+ - x5 BreadBoard wires (you can always go back to get them when you know  what sizes you need)
  - Your own laptop or University laptop
 
  ![alt text](PXL_20260928_132251485.jpg)
@@ -40,7 +40,7 @@ Choose an appropriate length breadboard wire and connect the Pico's pins shown i
 >Make sure positive leg of the  LED, is the one connected to the pico's pins. Connecting it the wrong way may cause the LED to break.  
 > <img src="image-1.png" width="60%"/>
 
-3. Next add the LEDs to the breadboard and connect the LED's positive legs to the correct  pins on the Pico, using breadboard wire. (positive leg should be  the one on the left)
+3. Next add the LEDs to the breadboard and connect the LED's positive legs to the correct  pins on the Pico, using breadboard wire.
 ![alt text](PXL_20260923_173847037.jpg)
 
 3. The last step is to connect the other leg of the LED, to ground via 120R resistor. These resistors are important because they reduces the current flowing thought the LED, preventing it from burning out. 
@@ -60,6 +60,8 @@ Each pin on the Pi Pico has a number. The following code tells the Pico that pin
 Type in the following code and click the green play button in the top left to run it:
 
 ```python
+from machine import Pin
+
 #define the LEDs pins
 led1 = Pin(19, Pin.OUT)
 led2 = Pin(20, Pin.OUT)
@@ -97,14 +99,14 @@ pwmled3 = PWM(led3, freq=5000)
 
 #Loop forever
 while True:
-    #The duty is incremented in steps of 100
-    for duty in range(0, 65536,100):
+    #The duty is decremented in steps of 100
+    for duty in range(65536 ,0 , -100):
         
         #Set the pulse duration for all LEDs
         pwmled1.duty_u16(duty)
         pwmled2.duty_u16(duty)
         pwmled3.duty_u16(duty)
         
-        # Wait one millsecond
-        sleep_ms(1)
+        # Wait three millsecond
+        sleep_ms(3)
 ```

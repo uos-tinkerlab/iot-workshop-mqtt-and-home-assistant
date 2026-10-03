@@ -2,7 +2,7 @@
 In this exercise we will be learning how MQTT can be used used as a way for smart home devices to communicate with each other.
 
 
-## Connecting the Pico to Wi-Fi
+## Connecting the Pi Pico to Wi-Fi
 
 1. Go to the top of Thonny and click "file"➡️"new". Then "file"➡️"Save as..."➡️"This computer". Call the  new file something like "MQTT.py" 
 
@@ -55,7 +55,7 @@ Click "Install" and when it is finished,  "Close".
 3. The following code tells the Pico where to find the MQTT broker on the local network.
 Add the following to the bottom of the existing code. Make sure to change `UNIQUE NAME` to an actually unique name and replace `IP ADDRESS` with the one shown on the board.   
 
-    **Add the folloing code to the botton of you file, then run**
+    **Add the following code to the bottom of you file, then run**
  
 
     ```python

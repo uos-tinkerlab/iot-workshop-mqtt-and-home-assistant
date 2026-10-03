@@ -24,6 +24,8 @@ You will need the following components:
 1. First unplug the Pi Pico
 2. Connect one of the legs on the LDR to 3.3V via a breadboard wire, as shown in the picture
 ![alt text](PXL_20260928_161444631.jpg)
+> [!NOTE]   
+>Please the gap in blue and red lines on the breadboard indicates either side is not electrically connected to each  other.
 3. Use a a bread board wire to connect the other leg the pin on the Pico shown in the picture. Also connect the other leg to ground via the 4k7R resistor
 ![alt text](PXL_20260928_161412252.jpg)
 4. After you have check your  connections replug your Pi Pico
@@ -47,7 +49,7 @@ while True:
     print(voltageMeasurement)
     client.publish(publishTopic, voltageMeasurement) #publishes the voltage reading
     
-    time.sleep(2) #Loop every 2 seconds
+    time.sleep(0.05) #Loop every 50 milliseconds
 ```
 
 ## The receiving Pi Pico
@@ -103,7 +105,7 @@ def messageRecieved(topic, message):
         
 
 #MQTT setup
-server = "143.167.24.65" #This is the IP address of the Mosquitto MQTT Broker
+server = "IP ADDRESS" #This is the IP address of the Mosquitto MQTT Broker
 serverPort = 1883 #This is the Mosquito MQTT Broker port
 clientId = "UNIQUE NAME" #Your Pi Pico needs to have a unique name
     

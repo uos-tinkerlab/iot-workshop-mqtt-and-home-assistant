@@ -1,6 +1,6 @@
-# IOT workshop - breadboards, Microccontrollers and MQTT  
+# IOT Workshop - Breadboards, Microcontrollers and MQTT  
 
-Welcome! By the end of this workshop you will have created a WiFi connected smart sensor and smart devices.
+Welcome! By the end of this workshop you will have created a WiFi-connected smart sensor and smart devices.
    
 The workshop is broken down into exercises to be done in order. 
 
@@ -16,6 +16,10 @@ Please read everything carefully. If you need any help, let us know :D
 |[06 Challenges](06-Challenges/06-Challenges.md)| 
 ||
 
+<br>
+<br>
+
+**For Organisers' Eyes Only!!**
 
 [Setting up the workshop](setting-up-the-workshop/setting-up-the-workshop.md)
 

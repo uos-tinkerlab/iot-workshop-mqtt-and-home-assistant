@@ -82,4 +82,4 @@ while True:
 ```
 
 Try run the new code on  both the Pi Pico's. After waiting a few seconds the partner with the receiving Pi Pico should see the the messages being received in Thonny:  
-ADD IMAGE!!!!!!!!!!!
+![alt text](image-1.png)
