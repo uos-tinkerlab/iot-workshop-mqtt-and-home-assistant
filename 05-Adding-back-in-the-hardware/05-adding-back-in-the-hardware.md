@@ -25,7 +25,7 @@ You will need the following components:
 2. Connect one of the legs on the LDR to 3.3V via a breadboard wire, as shown in the picture
 ![alt text](PXL_20260928_161444631.jpg)
 > [!NOTE]   
->Please the gap in blue and red lines on the breadboard indicates either side is not electrically connected to each  other.
+>Please note that the gap in blue and red lines on the breadboard indicates either side is not electrically connected to each  other.
 3. Use a a bread board wire to connect the other leg the pin on the Pico shown in the picture. Also connect the other leg to ground via the 4k7R resistor
 ![alt text](PXL_20260928_161412252.jpg)
 4. After you have check your  connections replug your Pi Pico
