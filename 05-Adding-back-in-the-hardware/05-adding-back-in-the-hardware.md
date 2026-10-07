@@ -99,9 +99,9 @@ def messageRecieved(topic, message):
     print(topic, message)
     
     #Setting the brighness of the LEDs using PWM
-    pwmled1.duty_u16(message)
-    pwmled2.duty_u16(message)
-    pwmled3.duty_u16(message)
+    pwmled1.duty_u16(int(message))
+    pwmled2.duty_u16(int(message))
+    pwmled3.duty_u16(int(message))
         
 
 #MQTT setup
