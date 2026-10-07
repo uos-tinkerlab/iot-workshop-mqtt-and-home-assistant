@@ -3,7 +3,8 @@
 We are going to be learning about how to use a breadboard, code and Pi Pico to control LEDs.
 
 Here is the list of components you need:
- - Pi Pico 2 W already inserted onto a breadboard
+ - Pi Pico 2 W 
+ - Breadboard
  - Micro USB cable
  - x3 red LEDs
  - x3 120R resisters
@@ -26,13 +27,15 @@ In the picture below, I've taken apart a slightly different style of breadboard.
 
 ## Building on the breadboard
 
-1. Make sure your Pi Pico is unplugged from your computer while building on  the breadboard.
+1. Place the Pi Pico at the end of the breadboard. Line it up with the breadboards pin hole and carefully push down on all 4 corners of the Pi pico.
+
+2. Make sure your Pi Pico is unplugged from your computer while building on  the breadboard.
 
 > [!NOTE]   
 >You may  find you need to pull of the  insulation  at each end of the breadboard wires and bend the exposed ends 90 degrees.  
 > <img src="PXL_20260923_174034467.jpg" alt="alt text" width="50%"/>
 
-2. The Pico provides power  and ground to the bread board though special pins.  
+3. The Pico provides power  and ground to the bread board though special pins.  
 Choose an appropriate length breadboard wire and connect the Pico's pins shown in the picture. The upper row is Power - 3.3V and the lower row is ground - 0V. 
 ![alt text](PXL_20260923_173916846.jpg)
 
@@ -40,10 +43,10 @@ Choose an appropriate length breadboard wire and connect the Pico's pins shown i
 >Make sure positive leg of the  LED, is the one connected to the pico's pins. Connecting it the wrong way may cause the LED to break.  
 > <img src="image-1.png" width="60%"/>
 
-3. Next add the LEDs to the breadboard and connect the LED's positive legs to the correct  pins on the Pico, using breadboard wire.
+4. Next add the LEDs to the breadboard and connect the LED's positive legs to the correct  pins on the Pico, using breadboard wire.
 ![alt text](PXL_20260923_173847037.jpg)
 
-3. The last step is to connect the other leg of the LED, to ground via 120R resistor. These resistors are important because they reduces the current flowing thought the LED, preventing it from burning out. 
+5. The last step is to connect the other leg of the LED, to ground via 120R resistor. These resistors are important because they reduces the current flowing thought the LED, preventing it from burning out. 
 ![alt text](PXL_20260923_173737708.jpg)
 
 ## Creating and saving a program
