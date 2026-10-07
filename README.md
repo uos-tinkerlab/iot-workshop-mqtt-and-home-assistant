@@ -18,8 +18,3 @@ Please read everything carefully. If you need any help, let us know :D
 
 <br>
 <br>
-
-**For Organisers' Eyes Only!!**
-
-[Setting up the workshop](setting-up-the-workshop/setting-up-the-workshop.md)
-

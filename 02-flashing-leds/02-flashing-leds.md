@@ -15,8 +15,11 @@ Here is the list of components you need:
 ## What is a Pi Pico?
 It is a tiny computer or microccontroller that instead of running a operating system, runs a single program. It has pins along both sides to interact with hardware (e.g stuff on our breadboard).
 
-## What is a breadboard?
+Below is the pinout board diagram.
 
+![Pi Pico 2w Pinout Board Diagram](pico-2-r4-pinout.svg)
+
+## What is a breadboard?
 
 Breadboards let you prototype circuits. Components and wires plug into holes that are connected internally with metal strips.
 
