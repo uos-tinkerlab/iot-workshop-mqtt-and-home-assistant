@@ -47,7 +47,7 @@ ldr = machine.ADC(28)
 while True:
     voltageMeasurement = ldr.read_u16(); #reads the voltage
     print(voltageMeasurement)
-    client.publish(publishTopic, voltageMeasurement) #publishes the voltage reading
+    client.publish(publishTopic, str(voltageMeasurement)) #publishes the voltage reading
     
     time.sleep(0.05) #Loop every 50 milliseconds
 ```
