@@ -9,8 +9,13 @@ We can connect it in series with a resistor, between ground and voltage. Some of
 
 We can measure this voltage lost across the LDR by connecting it to one of the Pi Pico's pins. The voltage measured will change when the LDR's resistance changes, therefore it changes when the light intensity changes.
 
+**Slight Aside**
+The resistance of an LDR decreases when more light hits it. What do you think will happen to the voltage at GP28 when you shine a torch on the sensor? 
 
-## Adjusting the  sending Pi Pico's breadboard
+*Even Further Aside*
+You may be wondering why we've used GP28. Briefly, this is because GP28 supports analogue-to-digital conversion (ADC), which allows the Pico to measure the voltage quantitatively, instead of returning a qualitative digital high or low.
+
+## Adjusting the sending Pi Pico's breadboard
 The Pi Pico with the code that sends the messages needs to have a LDR and Resistor added to its breadboard. Work on this still in your pair.
 
 You will need the following components:
@@ -45,12 +50,27 @@ ldr = machine.ADC(28)
 
 #Loops forever
 while True:
-    voltageMeasurement = ldr.read_u16(); #reads the voltage
+    voltageMeasurement = ldr.read_u16() #reads the voltage
     print(voltageMeasurement)
     client.publish(publishTopic, str(voltageMeasurement)) #publishes the voltage reading
     
     time.sleep(0.05) #Loop every 50 milliseconds
 ```
+
+*Note:* `read_u16()` returns a scaled reading between 0 and 65535. This is related to the measured voltage but isn't (obviously) the voltage expressed in volts.
+
+**Brief Experiment**
+Run your sending Pico's code and look at the measurements appearing in the Thonny shell. Try:
+- Covering the LDR with your hand
+- Leaving the LDR in normal light
+- Shine your phone torch onto the LDR
+
+Investigate which conditions give the highest reading.
+
+*Further Experimentation*
+Your Pico currently publishes a new reading roughly every 50 milliseconds. Try changing the update interval and see how often the readings are printed.
+
+Contemplate on why sending fewer messages may sometimes be preferable. 
 
 ## The receiving Pi Pico
 
@@ -132,6 +152,13 @@ while True:
 2. When you shine your phones torch on the LDR you should see the LEDs increase in brightness. When you cover the LDR with your hand you should see the LEDs dim.
 3. Congratulations, you have successfully created a WiFi connected smart sensor and smart device!
 
+**Challenges to verify your learning**
+Before you move on, try to tackle some of the below challenges to make sure you really get what's going on. These are optional, and if you'd like to dive straight into some of the harder challenges, you can go on to stage 06.
 
+*Challenge 1: Make a night light*
+Your current system gets brighter when more light hits the LDR. But a real night light should do the opposite.
 
+Modify the receiving Pico's code, such that covering the LDR makes the LEDs brighter, and shining a torch on the LDR makes the LEDs dimmer. You shouldn't need to adjust the sender's code
 
+*Challenge 2: Make an automatic on/off light*
+Rather than gradually changing brightness, can you make the LEDs turn completely on when dark and completely off when bright?

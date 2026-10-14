@@ -1,7 +1,24 @@
 # 04 Sending Messages Between Devices. 
 Now we know how to connect the pi pico's to the broker its time to send messages between devices.
 
-**Make a pair with someone else that has a Pi Pico**. If you need  help finding someone, ask a representative. One persons Pi Pico will be sending the messages and the other persons will be receiving the messages. 
+**Make a pair with someone else that has a Pi Pico**. If you need help finding someone, ask a representative. One persons Pi Pico will be sending the messages and the other persons will be receiving the messages. 
+
+## How does MQTT know where to send messages?
+Imagine we've got three Picos connected to our broker.
+
+One Pico is publishing a message containing the temperature of the room.
+
+MQTT uses *topics* to organise these messages.
+
+You can kind of think of topics as a message board. The publisher can send messages to the topic, subscribers can look at the topic and receive these messages as they are sent.
+
+Both publishers and subscribers are MQTT clients. A single Pico can perform both roles.
+
+So for example, consider Pico A publishing "22" to `sensor/temperature`. Pico B subscribes to `sensor/temperature` and Pico C subscribes to `sensor/humidity`. 
+
+Pico B will receive the "22" message, but Pico C will not receive the message.
+
+Keep in mind that Pico B will need to be told to check for messages that have been published to the topic.
 
 ## The sending Pi Pico
 
@@ -24,6 +41,9 @@ while True:
     client.publish(publishTopic, "This is the message!!!!")
     time.sleep(2)
 ```
+
+**What's actually happening here?**
+The pairName is used to create our topic, (e.g. `sensor/teamA`). The `publish()` function tells our MQTT client to send the message "This is the message!!!!" to the broker under thaat topic. Then any client subscribed to `sensor/teamA` can receive that message.
 
 ## The receiving Pi Pico
 
@@ -81,5 +101,49 @@ while True:
     client.check_msg()
 ```
 
-Try run the new code on  both the Pi Pico's. After waiting a few seconds the partner with the receiving Pi Pico should see the the messages being received in Thonny:  
+**What's actually happening here?**
+`client.subscribe(subscribeTopic)` tells the broker that our Pico is interested in messages sent to `subscribeTopic`, leading the broker to forward those messages to our Pico. Then `client.set_callback()` is a function that gets called when an event happens, here, we're telling the MQTT client which function to run when it receives a message. 
+
+`client.check_msg()` checks whether a message has arrived. If one has, the MQTT library calls the function we registered ealier
+
+Try run the new code on both the Pi Pico's. After waiting a few seconds the partner with the receiving Pi Pico should see the the messages being received in Thonny:  
+
 ![alt text](image-1.png)
+
+**Experimentation to Reinforce Understanding**
+Before moving on, to make sure you truly get what's going on, try the following:
+
+*Challenge 1*
+Your sending Pico currently publishes `"This is the message!!!!"`
+
+1. Change the message to something else
+2. Run the sender again
+3. See what message the receiving Pico displays
+
+*Challenge 2*
+Your Picos are communicating successfully. Let's break that.
+
+1. On the sending Pico, change your pairName to something different
+2. Run the new code
+3. See if the messages are still being received on the receiving Pico
+4. Restore the original pair name and try again
+
+Why did the messages stop appearing (Hint: look at how `publishTopic` and `subscribeTopic` are constructed)?
+
+*Challenge 3*
+Right now, your Pico sends the same message every 2 seconds.
+
+Can you modify the sending code so that it sends
+
+`Message 1`, `Message 2`, ...
+
+The receiving Pico should display each message in order.
+
+*Challenge 4*
+When the receiving Pico gets a message, the MQTT library calls `messageReceived(topic, message)`. This is a "callback function". It allows our program to react when a message arrives, without knowing in advance when a message will be sent.
+
+Can you modify `messageReceived()` so that it prints something like:
+
+`"New message received: This is a message!!!!"`
+
+Hint: MQTT messages arrive as bytes. Use message.decode() to turn them into a normal Python string.
