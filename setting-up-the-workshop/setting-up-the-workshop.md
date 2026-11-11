@@ -9,3 +9,6 @@
 2. Follow this guide to install Ecsipse Mosquito on a computer https://youtu.be/rid5M4ifGPA?si=WEoQK5BoVO3dm5rc. Make sure it is set up to not to need authentication to connect to it. The computer could be a laptop running docker desktop, or one of our NVIDIA Jetson or a Raspberry Pi.
 3. Put the Ip address of the broker on the board so everyone can see it.
 
+
+## Getting MQTT server up on Uni Linux laptop
+https://docs.google.com/document/d/1INjxvi40Yi28aad12mhQ21OqYPs6Ig5n5iB9a43uQbM/edit?tab=t.0
